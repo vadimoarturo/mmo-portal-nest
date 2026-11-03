@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification / Подтверждение почты</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        .header img {
+            max-width: 150px;
+            margin-bottom: 10px;
+        }
+        .header h1 {
+            font-size: 24px;
+            color: #333333;
+            margin: 0;
+        }
+        .content {
+            text-align: center;
+            color: #666666;
+            padding: 20px 0;
+        }
+        .content p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        .verify-button {
+            display: inline-block;
+            background-color: #3498db;
+            color: #ffffff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .verify-button:hover {
+            background-color: #2980b9;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #999999;
+        }
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .language-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .language-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>Email Verification / Подтверждение почты</h1>
+        </div>
+
+        <!-- English Content Section -->
+        <div class="content language-section">
+            <p>Thank you for signing up! To complete your registration, please click the link below to verify your email address.</p>
+            <a href="{{url}}" class="verify-button">Verify Email</a>
+            <p>If the button doesn't work, copy and paste this link into your browser:</p>
+            <p style="word-break: break-all; color: #3498db;">{{url}}</p>
+        </div>
+
+        <!-- Russian Content Section -->
+        <div class="content language-section">
+            <p>Спасибо за регистрацию! Для завершения регистрации, пожалуйста, перейдите по ссылке ниже для подтверждения вашего адреса электронной почты.</p>
+            <a href="{{url}}" class="verify-button">Подтвердить почту</a>
+            <p>Если кнопка не работает, скопируйте и вставьте эту ссылку в ваш браузер:</p>
+            <p style="word-break: break-all; color: #3498db;">{{url}}</p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,199 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model GameServer {
+  server_name   String         @id
+  is_active     Boolean
+  version       String
+  rate          String
+  drop          String
+  shop_category ShopCategory[]
+  shop_item     ShopItem[]
+  shop_service  ShopService[]
+  auction       OrderAuction[]
+  history_buy   HistoryBuy[]
+}
+
+model PayProviderBonus {
+  id              Int      @id @default(autoincrement())
+  provider        String
+  amount          String
+  percent         String
+
+  pay_provider PayProvider @relation(fields: [provider], references: [provider])
+  @@index([provider])
+}
+
+model PayProvider {
+  provider        String      @id
+  is_active       Boolean    @default(true)
+  icon            String
+  rate            String     // Сколько за 1 USD Credits
+  min             String
+  haveCommission  Boolean
+  bonus           PayProviderBonus[]
+  order_transaction OrderTransaction[]
+
+  @@unique(name: "unique_pay_provider", fields: [provider])
+  @@index([provider, is_active])
+}
+
+model OrderTransaction {
+  id              String      @id
+  provider_id     String?
+  date_order      DateTime @default(now())
+  status          String
+  login           String
+  amount          String
+  amount_credits       String
+  rate            String
+  currency        String
+  provider        String
+  user            User     @relation(fields: [login], references: [login])
+  pay_provider    PayProvider? @relation(fields: [provider], references: [provider])
+}
+
+model HistoryTopUp {
+  id              Int      @id @default(autoincrement())
+  date_top_up     DateTime @default(now())
+  login           String
+  current_balance String
+  updated_balance String
+  method          String
+  user            User     @relation(fields: [login], references: [login])
+}
+
+model HistoryBuy {
+  id               Int      @id @default(autoincrement())
+  login           String
+  date_buy         DateTime @default(now())
+  server_name      String
+  item_id          Int      @default(0)
+  service_id       Int      @default(0)
+  game_item_id     String   @default("")
+  count            Int
+  item_count       Int
+  item_price       String
+  item_total_price String
+  current_balance  String
+  updated_balance  String
+  is_refund        Boolean  @default(false)
+  user             User     @relation(fields: [login], references: [login])
+  game_server      GameServer @relation(fields: [server_name], references: [server_name])
+}
+
+model ShopCategory {
+  id          Int        @id @default(autoincrement())
+  category_id String
+  is_active   Boolean    @default(true)
+  server_name String
+  game_server GameServer @relation(fields: [server_name], references: [server_name])
+  shop_item   ShopItem[]
+
+  @@unique(name: "unique_shop_category", fields: [category_id, server_name])
+  @@index([category_id, is_active])
+}
+
+model ShopService {
+  service_id  Int        @id @default(autoincrement())
+  is_active   Boolean    @default(true)
+  info        String
+  price       String
+  sale        String?
+  icon        String
+  image       String?
+  server_name String
+  game_server GameServer @relation(fields: [server_name], references: [server_name])
+}
+
+model ShopItem {
+  item_id       Int          @id
+  is_active     Boolean      @default(true)
+  icon          String
+  image         String?
+  info          String
+  category_id   String
+  server_name   String
+  price         String
+  sale          String?
+  game_id       Int?
+  game_id_set   String?
+  item_count    Int
+  is_stack      Boolean
+  level         String?
+  life_time     String?
+  life_type     String
+  is_move       Boolean
+  is_set        Boolean
+  shop_category ShopCategory @relation(fields: [category_id, server_name], references: [category_id, server_name])
+  game_server   GameServer   @relation(fields: [server_name], references: [server_name], onUpdate: NoAction)
+
+  @@index([category_id, is_active, item_id, server_name])
+}
+
+model UserSession {
+  id              Int      @id @default(autoincrement())
+  createdAt       DateTime     @default(now())
+  ip              String
+  user_agent      String
+  login           String
+  user            User     @relation(fields: [login], references: [login])
+}
+
+model User {
+  account_id            Int          @id @default(autoincrement())
+  createdAt             DateTime     @default(now())
+  updatedAt             DateTime     @updatedAt
+  auth_ok               Int          @default(0)
+  block                 Int          @default(1)
+  email_verify          Boolean      @default(false)
+  email                 String       @unique
+  login                 String       @unique
+  passwd                String
+  game_password_hash         String
+  server_idx_offset     Int          @default(0)
+  last_login_server_idx Int          @default(0)
+  balance               String       @default("0")
+  current_balance       String       @default("0")
+  referral_parent       String?
+  referral_code         String       @unique
+  referral_count        Int          @default(0)
+  gift_guild            Boolean      @default(false)
+  history_buy           HistoryBuy[]
+  auction_sell          OrderAuction[]    @relation("OrderAuctionSell")
+  auction_buy           OrderAuction[]    @relation("OrderAuctionBuy")
+  order_transaction     OrderTransaction[]
+  history_top_up        HistoryTopUp[]
+  UserSession UserSession[]
+
+  @@index([email, login])
+  @@index([login])
+  @@index([referral_code])
+  @@map("users")
+}
+
+model OrderAuction {
+  id             Int      @id @default(autoincrement())
+  login     String
+  login_buy String?
+  server_name    String
+  name           String
+  gold            String
+  credits             String
+  status         String
+  date_create    DateTime @default(now())
+  date_buy       DateTime?
+  date_closed    DateTime?
+  user_seller    User     @relation(fields: [login], references: [login], name: "OrderAuctionSell", onUpdate: NoAction, onDelete: NoAction)
+  user_buyer     User?    @relation(fields: [login_buy], references: [login], name: "OrderAuctionBuy", onUpdate: NoAction, onDelete: NoAction)
+  game_server    GameServer @relation(fields: [server_name], references: [server_name])
+
+  @@index([login])
+  @@index([login, status])
+}
