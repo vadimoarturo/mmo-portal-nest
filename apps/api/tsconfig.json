@@ -24,7 +24,7 @@
       "#Stats/*": ["src/stats/*"],
       "#Common/*": ["src/common/*"],
       "#User/*": ["src/user/*"],
-      "#Auction/*": ["src/auction/*"],  
+      "#Auction/*": ["src/auction/*"],
       "#Pay/*": ["src/pay/*"],
       "#GameServer/*": ["src/game-server/*"],
     },

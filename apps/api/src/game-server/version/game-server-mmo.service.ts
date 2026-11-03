@@ -93,9 +93,9 @@ export class MmoGameServerService extends GameServerBase implements OnModuleInit
 
     async getTopGuilds(limit: number): Promise<TopGuilds[]> {
         const query = `
-            SELECT TOP ${limit} g.name, g.icon, g.dungeon_id AS dungeons, 
+            SELECT TOP ${limit} g.name, g.icon, g.dungeon_id AS dungeons,
                    (SELECT COUNT(*) FROM GuildMember gm WHERE gm.guild_id = g.sid) AS players,
-                   (SELECT TOP 1 c.name FROM Character c WHERE c.sid = 
+                   (SELECT TOP 1 c.name FROM Character c WHERE c.sid =
                        (SELECT gm.player_id FROM GuildMember gm WHERE gm.guild_id = g.sid AND gm.permission = 7)
                    ) AS leaders
             FROM Guild g

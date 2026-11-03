@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "format": "prettier --write \"src/**/*.ts\" \"prisma/**/*.ts\"",
     "lint": "eslint \"{src,test}/**/*.ts\" --max-warnings=0",
     "lint:fix": "eslint \"{src,test}/**/*.ts\" --fix",
     "start": "nest start",
@@ -19,7 +19,6 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json",
     "prebuild": "pnpm prisma:generate",
     "pretest": "pnpm prisma:generate",
     "typecheck": "pnpm prisma:generate && tsc --noEmit",
