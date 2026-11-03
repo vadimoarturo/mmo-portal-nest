@@ -1,0 +1,25 @@
+{
+  "name": "mmo-portal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A modular MMORPG community platform with transactional commerce and a multilingual web client.",
+  "packageManager": "pnpm@9.4.0",
+  "engines": {
+    "node": ">=22.11.0 <23"
+  },
+  "scripts": {
+    "install:apps": "pnpm --dir apps/api install --frozen-lockfile && pnpm --dir apps/web install --frozen-lockfile",
+    "dev:api": "pnpm --dir apps/api start:dev",
+    "dev:web": "pnpm --dir apps/web start:dev",
+    "lint": "pnpm --dir apps/api lint && pnpm --dir apps/web lint",
+    "typecheck": "pnpm --dir apps/api typecheck && pnpm --dir apps/web typecheck",
+    "test": "pnpm --dir apps/api test -- --runInBand",
+    "build": "pnpm --dir apps/api build && pnpm --dir apps/web build",
+    "check:release": "node scripts/check-release.mjs",
+    "preview:capture": "node scripts/capture-preview.mjs",
+    "audit:prod": "pnpm --dir apps/api audit --prod && pnpm --dir apps/web audit --prod"
+  },
+  "devDependencies": {
+    "playwright": "1.64.1"
+  }
+}

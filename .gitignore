@@ -1,0 +1,47 @@
+# Local server distribution and operational data (never publish).
+/Server.zip
+/db/
+/infra/
+/rules/
+**/backups/
+**/logs/
+*.bak
+*.log
+*.dump
+
+# Credentials and machine-specific configuration.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.local.yml
+*.local.yaml
+*.local.conf
+
+# Dependencies and generated output.
+node_modules/
+.next/
+dist/
+build/
+out/
+coverage/
+.nyc_output/
+*.tsbuildinfo
+next-env.d.ts
+.eslintcache
+
+# Local deployment volumes and runtime assets.
+/deploy/cdn/
+/deploy/certbot/
+/deploy/data/
+
+# OS and editor artifacts.
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
