@@ -1,4 +1,4 @@
-import { PayProviders } from '../../../src/common/enum';
+import { PayProviders } from '#Root/shared/domain/enum/index';
 import { PrismaClient } from '@prisma/client';
 
 export const payProviderSeed = async (prisma: PrismaClient) => {

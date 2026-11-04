@@ -46,6 +46,7 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.4",
     "cookie-parser": "^1.4.7",
+    "decimal.js": "10.6.0",
     "handlebars": "^4.7.10",
     "ioredis": "^5.11.1",
     "joi": "^18.3.1",
@@ -105,15 +106,7 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node",
     "moduleNameMapper": {
-      "^#Core/(.*)$": "<rootDir>/core/$1",
-      "^#Auth/(.*)$": "<rootDir>/auth/$1",
-      "^#Shop/(.*)$": "<rootDir>/shop/$1",
-      "^#Stats/(.*)$": "<rootDir>/stats/$1",
-      "^#Common/(.*)$": "<rootDir>/common/$1",
-      "^#GameServer/(.*)$": "<rootDir>/game-server/$1",
-      "^#User/(.*)$": "<rootDir>/user/$1",
-      "^#Auction/(.*)$": "<rootDir>/auction/$1",
-      "^#Pay/(.*)$": "<rootDir>/pay/$1"
+      "^#Root/(.*)$": "<rootDir>/$1"
     }
   },
   "packageManager": "pnpm@9.4.0",
@@ -121,15 +114,7 @@
     "node": ">=22.11.0 <23"
   },
   "imports": {
-    "#Core/*": "./dist/src/core/*.js",
-    "#Auth/*": "./dist/src/auth/*.js",
-    "#Shop/*": "./dist/src/shop/*.js",
-    "#Stats/*": "./dist/src/stats/*.js",
-    "#Common/*": "./dist/src/common/*.js",
-    "#GameServer/*": "./dist/src/game-server/*.js",
-    "#User/*": "./dist/src/user/*.js",
-    "#Auction/*": "./dist/src/auction/*.js",
-    "#Pay/*": "./dist/src/pay/*.js"
+    "#Root/*": "./dist/src/*.js"
   },
   "pnpm": {
     "overrides": {

@@ -1,4 +1,4 @@
-import { GameServerName } from '../../src/common/enum';
+import { GameServerName } from '#Root/shared/domain/enum/index';
 import { PrismaClient } from '@prisma/client';
 
 export async function gameServerSeed(prisma: PrismaClient) {

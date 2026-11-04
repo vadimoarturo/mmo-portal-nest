@@ -1,9 +1,9 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import { PrismaService } from '#Core/prisma/prisma.service';
-import { HttpInterceptor } from '#Common/interceptor/http.interceptor';
+import { AppModule } from '#Root/app.module';
+import { PrismaService } from '#Root/platform/prisma/prisma.service';
+import { HttpInterceptor } from '#Root/shared/interceptor/http.interceptor';
 import * as cookieParser from 'cookie-parser';
-import { HttpExceptionFilter } from '#Common/exception/http-exception.filter';
+import { HttpExceptionFilter } from '#Root/shared/exception/http-exception.filter';
 import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {

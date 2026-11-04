@@ -4,32 +4,47 @@ The NestJS backend owns player identity, portal credits, catalog browsing, purch
 
 [Project overview](../../README.md) · [Architecture](../../docs/ARCHITECTURE.md) · [Web client](../web/README.md) · [Deployment](../../deploy/README.md)
 
-## Module structure
+## Domain-driven structure
+
+The API is a modular monolith with explicit bounded contexts. Domain models and application scenarios are plain TypeScript; NestJS composes HTTP adapters, repositories, and gateways at each context's module boundary.
+
+<p align="center"><img src="../../docs/assets/ddd-layers.svg" alt="DDD layers and dependency direction" width="100%" /></p>
 
 ```text
 src/
-  auth/                 Credentials, JWTs, guards, verification, password recovery
-  user/                 Account lookup and conditional wallet updates
-  shop/                 Catalog queries, pricing, quantity rules, purchase delivery
-  auction/              Gold listings, ownership checks, transaction settlement
-  pay/
-    providers/          Provider-specific payment creation and callback guards
-    webhook/            Shared idempotent settlement and bonus calculations
-  stats/                Cached public leaderboards
-  game-server/          Game adapter factory and cross-catalog SQL operations
-  core/
-    config/             Validated environment and typed configuration service
-    prisma/             Portal client lifecycle
-    cache/              Redis cache access
-    queue/              Bull queue, worker, email templates, retry policy
-  common/               Enums, DTO helpers, errors, filters, interceptors
+  contexts/
+    identity/           Accounts, verification, credentials, session issuance
+    wallet/             Portal credit transfers and balance checks
+    catalog/            Product pricing, checkout, catalog projections
+    auctions/           Gold reservations and listing lifecycle
+    payments/           Payment quotes, receipt matching, bonus settlement
+    rankings/           Public leaderboard projections
+    game-integration/   Game gateway and SQL anti-corruption adapter
+  shared/
+    domain/             Money, business vocabulary, domain failures
+    application/        Opaque transaction context and UnitOfWork port
+    http/               Cookie vocabulary
+    decorator/          Authenticated request extraction
+    exception/          HTTP exception mapping
+    interceptor/        Request timing
+  platform/
+    config/             Validated runtime configuration
+    prisma/             Client lifecycle and UnitOfWork implementation
+    cache/              Redis cache adapter
+    queue/              Bull worker, email templates, retry policy
+  bootstrap/            Shared resource/module composition
+  app.module.ts         Context assembly and global rate limiting
 prisma/
-  schema.prisma         Portal domain model
-  migrations/           Clean initial schema migration
-  seed.ts               Repeatable seed entrypoint
+  schema.prisma         Persistence model, separate from domain models
+  migrations/           Versioned database schema
+  seed.ts               Repeatable configuration seed
 ```
 
-`AppModule` initializes configuration before Redis-dependent services are constructed. Async module factories read validated values for cache, queues, mail, and rate limiting. The API enables global DTO validation, an exception filter, request timing, CORS for `WEB_URL`, and an `/api` prefix.
+Core contexts contain `domain/`, `application/`, `infrastructure/`, and, where applicable, `presentation/http/`. Read-only rankings and the game integration expose application ports without artificial aggregates. Context READMEs describe their specific contracts: [identity](src/contexts/identity/README.md), [wallet](src/contexts/wallet/README.md), [catalog](src/contexts/catalog/README.md), [auctions](src/contexts/auctions/README.md), [payments](src/contexts/payments/README.md), [rankings](src/contexts/rankings/README.md), and [game integration](src/contexts/game-integration/README.md).
+
+Application services receive repository/gateway interfaces through constructors. Nest module factories bind these interfaces to concrete adapters. Domain code imports no NestJS, Prisma, Redis, HTTP DTO validation, or payment SDK. Automated architecture tests enforce dependency direction and context boundaries; a composition test resolves the real context modules with external resources replaced.
+
+`AppModule` initializes validated configuration and registers global DTO validation, exception mapping, request timing, CORS for `WEB_URL`, and an `/api` prefix. See the [DDD design guide](../../docs/DDD.md) for ownership, ubiquitous language, transaction design, and extension examples.
 
 ## Identity and sessions
 
@@ -47,9 +62,9 @@ The notification worker renders a Handlebars template and sends it through SMTP.
 
 <p align="center"><img src="../../docs/assets/commerce-flow.svg" alt="Atomic marketplace, auction, and payment transactions" width="100%" /></p>
 
-The wallet service accepts decimal strings, validates a positive amount, and executes conditional `DECIMAL(19, 2)` updates. SQL `OUTPUT` returns the actual previous and resulting balances for audit entries. An existing transaction client can be passed to the wallet service so settlement never opens a separate transaction.
+The wallet service accepts decimal strings, validates a positive amount, and executes conditional `DECIMAL(19, 2)` updates. SQL `OUTPUT` returns the actual previous and resulting balances for audit entries. An opaque `TransactionContext` can be passed to the wallet application port so settlement never opens a separate transaction. Only infrastructure unwraps the underlying Prisma client.
 
-Marketplace purchases validate the active catalog/server relationship, quantity limits, and stackability. Price multiplication uses `Prisma.Decimal`. The debit, purchase audit record, and game inventory insert share one transaction.
+Marketplace purchases validate the active catalog/server relationship, quantity limits, and stackability. Price multiplication uses the immutable `Money` value object, backed by an isolated `decimal.js` constructor. The debit, purchase audit record, and game inventory insert share one transaction.
 
 Auction listing creation removes game gold and inserts the listing in the same transaction. Buying a lot conditionally changes its state from `active` to `completed`, then settles both portal wallets and the buyer's game wallet. Canceling a lot conditionally changes `active` to `canceled` and returns the reserved gold. Competing state changes cannot both claim the same listing.
 

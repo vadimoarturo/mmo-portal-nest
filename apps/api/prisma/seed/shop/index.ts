@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { GameServerName, ShopCategory, ShopItemLifeType } from '../../../src/common/enum';
+import { GameServerName, ShopCategory, ShopItemLifeType } from '#Root/shared/domain/enum/index';
 
 export const shopSeed = async (prisma: PrismaClient) => {
     await prisma.shopCategory.upsert({

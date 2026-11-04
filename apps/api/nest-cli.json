@@ -5,9 +5,11 @@
   "compilerOptions": {
     "deleteOutDir": true,
     "assets": [
-      { "include": "core/i18n/translate/**/*", "outDir": "dist/src/", "watchAssets": true },
-      { "include": "core/queue/mail/*.hbs", "outDir": "dist/src/", "watchAssets": true}
-
+      {
+        "include": "platform/queue/mail/*.hbs",
+        "outDir": "dist/src/",
+        "watchAssets": true
+      }
     ]
   }
 }
