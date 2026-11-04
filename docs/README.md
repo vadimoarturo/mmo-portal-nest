@@ -5,6 +5,7 @@ The documentation describes the implemented `mmo-portal` application and its dep
 | Guide | Contents |
 | --- | --- |
 | [Project overview](../README.md) | Features, preview, quick start, configuration, verification |
+| [DDD design](DDD.md) | Context ownership, ubiquitous language, ports, dependency direction, atomic scenarios |
 | [Architecture](ARCHITECTURE.md) | Domain model, transaction boundary, game schema contract, extension points |
 | [API](../apps/api/README.md) | Modules, authentication, endpoints, configuration, seed, unit tests |
 | [Web](../apps/web/README.md) | Routes, providers, translations, assets, standalone output |

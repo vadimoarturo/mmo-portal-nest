@@ -10,7 +10,11 @@
 
 The browser communicates with a single public gateway. Next.js renders the localized interface. NestJS validates requests, authenticates sessions, and coordinates domain services. API credentials remain in runtime configuration; the frontend receives only public settings.
 
-Core infrastructure is shared through Nest modules: validated configuration, Prisma lifecycle, Redis cache, notification queue, and helpers. Business modules own their controllers, DTOs, services, and error codes. Game-specific SQL belongs to the adapter instead of controllers or UI code.
+The API is a domain-driven modular monolith. Each bounded context owns its model, application ports/scenarios, and adapters. Nest modules are composition roots. Shared platform resources provide validated configuration, Prisma lifecycle, Redis cache, notification queue, and helpers. Game-specific SQL stays behind the game integration anti-corruption layer.
+
+<img src="assets/context-map.svg" alt="Bounded contexts and collaboration contracts" width="100%" />
+
+The [DDD guide](DDD.md) documents context ownership, layer rules, ubiquitous language, and transaction propagation.
 
 ## Data model
 
@@ -26,13 +30,13 @@ The Prisma schema is the source of truth for Portal records:
 - `HistoryTopUp` records credit changes with previous and resulting balances.
 - `OrderAuction` connects seller, optional buyer, server, reserved gold, and credit price.
 
-Credit values are decimal strings at the HTTP boundary and in the existing domain schema. Calculations use `Prisma.Decimal`; wallet SQL explicitly casts to `DECIMAL(19, 2)`. Game gold uses positive integer amounts. The shared domain server key is `MMO`.
+Credit values are decimal strings at the HTTP boundary and in the existing domain schema. Calculations use domain `Money` and an isolated `decimal.js` constructor; wallet SQL explicitly casts to `DECIMAL(19, 2)`. Game gold uses positive integer amounts. The shared domain server key is `MMO`.
 
 ## Transaction boundary
 
 <img src="assets/commerce-flow.svg" alt="Commerce transaction boundaries" width="100%" />
 
-All participating writes use the same `Prisma.TransactionClient`. Wallet methods accept that client instead of opening a nested transaction. Game writes qualify the validated GameWorld catalog through the same SQL connection.
+Application scenarios pass the same opaque `TransactionContext` to repository, wallet, and game ports. `PrismaUnitOfWork` owns the transaction and infrastructure adapters unwrap its `Prisma.TransactionClient`. Wallet operations join the provided context instead of opening a nested transaction. Game writes qualify the validated GameWorld catalog through the same SQL connection.
 
 | Operation | Records changed together |
 | --- | --- |
@@ -48,7 +52,7 @@ Portal and GameWorld must be on the **same SQL Server instance**. Use the same c
 
 ## Game database contract
 
-The SQL adapter in `apps/api/src/game-server/version/game-server-mmo.service.ts` integrates a game schema with the following tables. These are integration tables, not database backups or server distributions.
+The SQL adapter in `apps/api/src/contexts/game-integration/infrastructure/version/game-server-mmo.service.ts` integrates a game schema with the following tables. These are integration tables, not database backups or server distributions.
 
 | Table | Columns used by the adapter | Purpose |
 | --- | --- | --- |
@@ -82,7 +86,7 @@ No live game media or server-specific branding is bundled. Relative catalog asse
 
 ## Extending the platform
 
-- **Add a payment provider:** implement the provider interface, authenticate its callback, register its factory mapping, seed disabled metadata, and test invalid/repeated/mismatched callback scenarios.
+- **Add a payment provider:** implement the payment gateway/provider interface, authenticate its callback, register its factory mapping, seed disabled metadata, and test invalid/repeated/mismatched callback scenarios.
 - **Add a game adapter:** implement ranking, character, wallet, and inventory operations; preserve the transactional commerce contract; register the new server key on both sides of the HTTP contract.
 - **Add a locale:** provide every translation namespace, register the locale, and check account/payment/guide routes at desktop and mobile widths.
 - **Add a catalog category:** extend the API/web enums, category order, seed/configuration, and operator imagery; keep checkout disabled until game item mappings are valid.

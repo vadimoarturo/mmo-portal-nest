@@ -14,7 +14,7 @@ A full-stack community platform for MMORPG servers: player accounts, a credit-ba
 
 The project keeps application source in `apps/` and portable deployment configuration in `deploy/`. SQL migrations and a small, inactive example catalog are included. Server distributions, live databases, backups, logs, certificates, credentials, and operational media stay outside the repository.
 
-**Explore:** [API](apps/api/README.md) · [Web client](apps/web/README.md) · [Deployment](deploy/README.md) · [Architecture](docs/ARCHITECTURE.md) · [Contributing](CONTRIBUTING.md)
+**Explore:** [API](apps/api/README.md) · [Web client](apps/web/README.md) · [Deployment](deploy/README.md) · [Architecture](docs/ARCHITECTURE.md) · [DDD design](docs/DDD.md) · [Contributing](CONTRIBUTING.md)
 
 ## Interface preview
 
@@ -48,6 +48,8 @@ Nginx routes browser traffic to Next.js and `/api/` traffic to NestJS. The API o
 **Both databases use the same SQL Server instance.** This is an architectural requirement for atomic commerce: wallet changes, order state, and game delivery participate in one database transaction. The adapter validates the connection origins and catalog identifier before a cross-catalog write.
 
 Redis serves three separate responsibilities: cached query results, shared request throttling, and queued email delivery. Payment providers and SMTP are accessed only by the API.
+
+The API uses **Domain-Driven Design** with bounded contexts for Identity, Wallet, Catalog, Auctions, Payments, Rankings, and Game Integration. Domain rules are framework-independent; application scenarios depend on explicit ports, and infrastructure adapters preserve one transaction across financial writes. The web client mirrors these contexts under `features/`. [DDD design and context map](docs/DDD.md).
 
 See [architecture and domain contracts](docs/ARCHITECTURE.md) for module responsibilities, transaction boundaries, data relationships, and extension points.
 

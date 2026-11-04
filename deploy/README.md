@@ -8,12 +8,12 @@ This directory contains the portable application deployment: Dockerfiles for the
 
 ## Services and boundaries
 
-| Service | Internal address | Responsibility |
-| --- | --- | --- |
+| Service | Internal address                         | Responsibility                                                          |
+| ------- | ---------------------------------------- | ----------------------------------------------------------------------- |
 | `nginx` | Container port 80; host port `HTTP_PORT` | Public entrypoint, path routing, client IP boundary, optional CDN files |
-| `web` | `web:3000` | Next.js standalone application |
-| `api` | `api:3010` | NestJS API and business integrations |
-| `redis` | `redis:6379` | Cache, throttling, and notification queue |
+| `web`   | `web:3000`                               | Next.js standalone application                                          |
+| `api`   | `api:3010`                               | NestJS API and business integrations                                    |
+| `redis` | `redis:6379`                             | Cache, throttling, and notification queue                               |
 
 Only Nginx publishes a host port. Application services communicate by Compose service name. Redis keeps data in the named `redis-data` volume and reports readiness through its health check. The API waits for Redis health before starting.
 

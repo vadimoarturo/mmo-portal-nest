@@ -24,11 +24,13 @@ Use the feature's actual risks to choose tests. Financial and authentication cha
 ## Domain conventions
 
 - Portal credits cross the HTTP boundary as decimal strings. Game gold uses integer strings.
-- Monetary calculations use `Prisma.Decimal`; SQL wallet updates specify fixed precision and sufficient-funds conditions.
-- Pass the same transaction client through every participating wallet, order, and game write.
+- Monetary calculations use the domain `Money` value object and isolated `decimal.js` arithmetic; SQL wallet updates specify fixed precision and sufficient-funds conditions.
+- Pass the same opaque `TransactionContext` through application ports for every participating wallet, order, and game write. Only infrastructure unwraps Prisma.
 - Keep game SQL inside the game adapter. Bind SQL values and validate dynamic identifiers.
 - Keep request identity in authenticated server context; never trust a caller-provided account login for settlement.
 - Keep credentials, cookies, tokenized links, and message bodies out of logs and screenshots.
+
+Domain models may depend on shared domain primitives. Application code depends on its domain and declared ports; cross-context application imports must target a public `.port.ts` contract. Keep Nest decorators, Prisma types, Redis, provider signatures, and HTTP validation in adapters or composition roots. Run the architecture and composition tests whenever changing module boundaries. Read the [DDD design guide](docs/DDD.md) before adding a new context.
 
 ## Reviewable commits
 

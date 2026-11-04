@@ -23,6 +23,6 @@ pnpm build
 
 Each application owns its dependency lockfile, TypeScript configuration, lint configuration, and environment example. Install dependencies with `--frozen-lockfile`; update the relevant lockfile whenever dependency declarations change.
 
-The API's `src/common/enum/` and the web client's `types/enum/` describe the HTTP contract. Change both sides when renaming a server identifier, currency field, category, or business error. The abstract server key is `MMO`; monetary fields are named `credits` and `gold`.
+The API's `src/shared/domain/enum/` and the web client's `types/enum/` describe the HTTP contract. Change both sides when renaming a server identifier, currency field, category, or business error. The abstract server key is `MMO`; monetary fields are named `credits` and `gold`.
 
 Deployment configuration lives in [`deploy/`](../deploy/README.md). Runtime secrets, database contents, and server media do not belong in either application's source tree.
