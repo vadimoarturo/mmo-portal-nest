@@ -112,6 +112,8 @@ The container build passes public settings as build arguments and starts the sam
 
 ## Verification and previews
 
+`typecheck` generates Next.js framework and route declarations before invoking TypeScript, so it also works in a clean checkout without prior build output.
+
 ```bash
 pnpm lint
 pnpm typecheck
