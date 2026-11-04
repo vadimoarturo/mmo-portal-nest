@@ -1,0 +1,62 @@
+name: mmo-portal
+
+services:
+  api:
+    build:
+      context: ../apps/api
+      dockerfile: ../../deploy/Dockerfile.api
+    env_file:
+      - ${API_ENV_FILE:-../apps/api/.env}
+    environment:
+      APP_PORT: 3010
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    depends_on:
+      redis:
+        condition: service_healthy
+    expose:
+      - "3010"
+    init: true
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ../apps/web
+      dockerfile: ../../deploy/Dockerfile.web
+      args:
+        NEXT_PUBLIC_API_URL: ${PUBLIC_API_ORIGIN:-http://localhost:8080}
+        NEXT_PUBLIC_DISCORD_URL: ${NEXT_PUBLIC_DISCORD_URL:-}
+        NEXT_PUBLIC_TELEGRAM_URL: ${NEXT_PUBLIC_TELEGRAM_URL:-}
+        NEXT_PUBLIC_CLIENT_DOWNLOAD_URL: ${NEXT_PUBLIC_CLIENT_DOWNLOAD_URL:-}
+        NEXT_PUBLIC_CLIENT_TORRENT_URL: ${NEXT_PUBLIC_CLIENT_TORRENT_URL:-}
+    expose:
+      - "3000"
+    init: true
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "${HTTP_PORT:-8080}:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./cdn:/cdn:ro
+    depends_on:
+      - api
+      - web
+    restart: unless-stopped
+
+volumes:
+  redis-data:
