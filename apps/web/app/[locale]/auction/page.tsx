@@ -1,4 +1,4 @@
-import { Auction } from "@/components/Content/Auction";
+import { Auction } from "@/features/auctions/presentation/Auction";
 
 export default function AuctionPage() {
   return <Auction />;

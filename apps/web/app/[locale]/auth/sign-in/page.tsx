@@ -1,6 +1,6 @@
 "use client";
 import Welcome from "@/components/Content/Welcome";
-import { Auth } from "@/components/UI/Modal/Content/Auth";
+import { Auth } from "@/features/identity/presentation/Auth";
 import { useModal } from "@/core/providers/modal.provider";
 import { useEffect } from "react";
 

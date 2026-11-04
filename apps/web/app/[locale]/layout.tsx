@@ -1,12 +1,12 @@
 import { Outfit, Cinzel } from "next/font/google";
 import "./globals.css";
 import { CookiesProvider } from "next-client-cookies/server";
-import initTranslations from "../i18n";
-import TranslationsProvider from "../../core/providers/translations.provider";
-import ReactQueryProvider from "../../core/providers/react-query.provider";
-import { AuthProvider } from "../../core/providers/auth.provider";
-import { NotificationProvider } from "../../core/providers/notify.provider";
-import Header from "../../components/Content/Header";
+import initTranslations from "@/app/i18n";
+import TranslationsProvider from "@/core/providers/translations.provider";
+import ReactQueryProvider from "@/core/providers/react-query.provider";
+import { AuthProvider } from "@/core/providers/auth.provider";
+import { NotificationProvider } from "@/core/providers/notify.provider";
+import Header from "@/components/Content/Header";
 import { Metadata } from "next";
 import { ModalProvider } from "@/core/providers/modal.provider";
 import Modal from "@/components/UI/Modal";

@@ -1,4 +1,6 @@
 "use client";
+import { identityApi } from "@/features/identity/infrastructure/api";
+
 
 import { appLink } from "@/components/Content/Header/constants";
 import { CookieStore } from "@/types/enum";
@@ -13,8 +15,7 @@ import React, {
   useCallback,
   ReactNode,
 } from "react";
-import { BackendApiService } from "../services/api";
-import { useModal } from "./modal.provider";
+import { useModal } from "@/core/providers/modal.provider";
 
 type AuthContextType = {
   isAuth: boolean;
@@ -32,7 +33,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const cookieStore = useCookies();
   const { mutate: mutateLogout } = useMutation({
     mutationKey: ["logout"],
-    mutationFn: () => BackendApiService.logout(),
+    mutationFn: () => identityApi.logout(),
   });
 
   const [isAuth, setIsAuth] = useState<boolean>(false);

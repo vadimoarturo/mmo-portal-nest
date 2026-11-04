@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import { appLink } from "../Header/constants";
+import { appLink } from "@/components/Content/Header/constants";
 
 export const Footer = () => {
   const { t } = useTranslation();

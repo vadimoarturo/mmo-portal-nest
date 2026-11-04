@@ -10,23 +10,32 @@ A responsive Next.js App Router application for player accounts, marketplace bro
 
 ```text
 app/
-  [locale]/             Localized pages, layout, metadata, global styles
+  [locale]/             Localized routes, layouts, metadata, styles
+features/
+  identity/             Account dialogs, recovery, verification, HTTP contracts
+  wallet/               Balance HTTP client
+  catalog/              Shop views, purchase dialog, catalog HTTP contracts
+  auctions/             Listing views, confirmation dialogs, auction client
+  payments/             Top-up dialog, provider HTTP client and contracts
+  rankings/             Leaderboard presentation, HTTP client and contracts
 components/
-  Content/              Header, footer, welcome, rankings, shop, auction, guide
-  UI/                   Buttons, input, modal shell, auth/payment/download dialogs
+  Content/              Shared header, footer, welcome, guides, static content
+  UI/                   Reusable input, button, select, modal shell, download dialog
 core/
-  providers/            Auth, notifications, modals, translations, React Query
-  services/api/         Typed endpoint methods and shared Axios transport
-  helpers/              Validation patterns, item presentation, API error handling
-i18n/
-  locales/en/           English namespaces
-  locales/ru/           Russian namespaces
-types/                  HTTP DTOs, enums, error contracts
-public/images/          Original neutral portal emblem
-scripts/                Standalone output preparation
+  providers/            Auth/session display, notifications, modal composition
+  services/api/         Shared Axios transport
+  helpers/              Validation patterns, item formatting, error translation
+i18n/locales/           English and Russian namespaces
+types/                  Shared enums and error contracts
+public/images/          Original emblem and fantasy hero artwork
+scripts/                Standalone build preparation
 ```
 
-The locale layout initializes translations on the server and composes the client providers. Page-level components use a single API service rather than creating separate transports. Translated namespaces cover account forms, payments, shop, auctions, guides, SEO, navigation, and shared messages.
+Features align with the backend bounded contexts. Each feature owns its `infrastructure/api.ts` client, `contracts/` request/response types, and applicable `presentation/` views. All clients share a single transport for URL construction, credentials, and error handling. The route tree and shared providers compose these features.
+
+The API owns monetary rules, authorization, and state transitions. The browser displays server state and collects input; it does not duplicate settlement aggregates or directly import backend persistence models. See the [DDD guide](../../docs/DDD.md#web-client-boundary).
+
+The locale layout initializes translations on the server and composes the client providers. Translated namespaces cover account forms, payments, shop, auctions, guides, SEO, navigation, and shared messages.
 
 ## Routes and user journeys
 

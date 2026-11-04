@@ -1,4 +1,4 @@
-import Shop from "@/components/Content/Shop";
+import Shop from "@/features/catalog/presentation/Shop";
 
 export default function ShopPage() {
   return <Shop />;

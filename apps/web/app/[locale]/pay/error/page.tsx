@@ -2,7 +2,7 @@
 import { useNotification } from "@/core/providers/notify.provider";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
-import Shop from "@/components/Content/Shop";
+import Shop from "@/features/catalog/presentation/Shop";
 import { useRouter } from "next/navigation";
 
 export default function ShopPage() {

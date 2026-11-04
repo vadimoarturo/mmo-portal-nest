@@ -1,4 +1,4 @@
-import { ShopItemDTO } from "@/types/dto/shop/shop-items.dto";
+import { ShopItemDTO } from "@/features/catalog/contracts/shop-items.dto";
 
 export const localizeItemsInfo = (
   items: ShopItemDTO[] | undefined,

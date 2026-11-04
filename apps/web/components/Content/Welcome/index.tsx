@@ -2,8 +2,8 @@
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { useModal } from "@/core/providers/modal.provider";
-import { Auth } from "@/components/UI/Modal/Content/Auth";
-import RankingSection from "./RankingSection";
+import { Auth } from "@/features/identity/presentation/Auth";
+import RankingSection from "@/features/rankings/presentation/RankingSection";
 
 export default function Welcome() {
   const { t, i18n } = useTranslation();

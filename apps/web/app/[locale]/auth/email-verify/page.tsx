@@ -1,4 +1,4 @@
-import VerifyEmail from "@/components/Content/EmailVerify";
+import VerifyEmail from "@/features/identity/presentation/EmailVerify";
 
 export default function AuthVerifyEmailPage() {
   return (

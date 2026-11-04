@@ -5,15 +5,15 @@ import { useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import LanguageChanger from "@/components/UI/LanguageChanger";
-import { appLink } from "./constants";
+import { appLink } from "@/components/Content/Header/constants";
 import { Logo } from "@/components/UI/Logo";
 import { useModal } from "@/core/providers/modal.provider";
-import { Auth } from "@/components/UI/Modal/Content/Auth";
+import { Auth } from "@/features/identity/presentation/Auth";
 import { useAuth } from "@/core/providers/auth.provider";
 import ServerInfo from "@/components/Content/ServerInfo";
-import Pay from "@/components/UI/Modal/Content/Pay";
+import Pay from "@/features/payments/presentation/Pay";
 import Download from "@/components/UI/Modal/Content/Download";
-import EmailVerificationBanner from "./EmailVerificationBanner";
+import EmailVerificationBanner from "@/components/Content/Header/EmailVerificationBanner";
 
 const Header = () => {
   const router = useRouter();

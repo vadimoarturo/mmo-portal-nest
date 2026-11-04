@@ -1,9 +1,10 @@
 "use client";
+import { identityApi } from "@/features/identity/infrastructure/api";
+
 
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useMutation } from "@tanstack/react-query";
-import { BackendApiService } from "@/core/services/api";
 import { useNotification } from "@/core/providers/notify.provider";
 import { ApiError } from "@/types/errors";
 import { returnCodeError } from "@/core/helpers/returnCodeError";
@@ -14,7 +15,7 @@ const EmailVerificationBanner = () => {
   const [cooldown, setCooldown] = useState(0);
 
   const { mutate: resendEmail, isPending } = useMutation({
-    mutationFn: BackendApiService.resendVerifyEmail,
+    mutationFn: identityApi.resendVerifyEmail,
     onSuccess: () => {
       showNotification(t("auth:emailVerification.emailSent"), "success");
       setCooldown(60);
