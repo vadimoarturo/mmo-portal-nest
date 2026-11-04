@@ -15,7 +15,7 @@
     "@next/bundle-analyzer": "^15.5.29",
     "@tanstack/react-query": "^5.105.3",
     "axios": "^1.21.0",
-    "i18next": "^25.10.10",
+    "i18next": "^26.6.0",
     "i18next-browser-languagedetector": "^8.3.0",
     "i18next-resources-to-backend": "^1.2.4",
     "next": "15.5.29",
