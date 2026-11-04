@@ -1,0 +1,85 @@
+{
+  "title": "User Agreement",
+  "testModeWarning": "IMPORTANT: This server operates in test mode and is not intended for commercial use.",
+  "intro": "This user agreement governs the relationship between the Administration providing game server services for mmo-portal and the user.",
+  "sections": {
+    "generalProvisions": {
+      "title": "General Provisions",
+      "items": [
+        "User confirms reaching the age of majority or having permission from parents/guardians",
+        "Registration and use of the game means acceptance of the agreement terms",
+        "Administration may change the agreement at any time",
+        "Server is provided \"as is\" in test mode"
+      ]
+    },
+    "userRights": {
+      "title": "User Rights and Obligations",
+      "obligations": {
+        "title": "User must:",
+        "items": [
+          "Comply with the agreement terms",
+          "Keep password secret",
+          "Treat other players respectfully",
+          "Report bugs to administration"
+        ]
+      },
+      "prohibitions": {
+        "title": "User is prohibited from:",
+        "items": [
+          "Using the game for commercial purposes",
+          "Registering more than two characters",
+          "Using software bugs",
+          "Modifying the game client",
+          "Using third-party automation programs",
+          "Violating legislation",
+          "Distributing prohibited content"
+        ]
+      }
+    },
+    "adminRights": {
+      "title": "Administration Rights",
+      "items": [
+        "Close or restrict functionality at any time",
+        "Apply sanctions for violations",
+        "Change game balance and elements",
+        "Remove unacceptable content",
+        "Block accounts without explanation"
+      ]
+    },
+    "donationPolicy": {
+      "title": "Donation and Refund Policy",
+      "creditInfo": "Through donations, players acquire the in-game currency Credits (mmo-portal), which is used to purchase items and services on the server.",
+      "refundRules": {
+        "title": "Refund Rules",
+        "description": "Players can request a refund of unused Credits back to real currency.",
+        "requirements": [
+          "To request a refund, you must write to the email rzfun@atomicmail.io, you must write from the email with which the registration was performed",
+          "Refunds are processed only in USDT TRC20 cryptocurrency",
+          "Minimum refund amount (excluding network fees): 1 USDT = 70 Credits",
+          "Network transaction fees are covered by the player",
+          "Only unused Credits balance on the character is eligible for refund",
+          "Refund request processing may take up to 7 business days"
+        ]
+      }
+    },
+    "responsibility": {
+      "title": "Responsibility",
+      "items": [
+        "Administration does not guarantee uninterrupted operation",
+        "User bears responsibility for their actions",
+        "Administration is not responsible for technical failures",
+        "User uses the server at their own risk"
+      ]
+    },
+    "gameRules": {
+      "title": "Game Rules",
+      "items": [
+        "Insults and profanity are prohibited",
+        "Character names must be appropriate",
+        "Discussion of other servers in general chat is prohibited",
+        "Impersonating administration is unacceptable"
+      ]
+    }
+  },
+  "finalNote": "By using the game server, you agree to these terms. If you disagree with the terms, please stop using the service."
+}

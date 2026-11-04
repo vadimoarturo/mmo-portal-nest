@@ -1,0 +1,15 @@
+{
+  "forgotPassword": "Забыли пароль?",
+  "back": "Назад",
+  "signIn": "Войти",
+  "signUp": "Зарегистрироваться",
+  "startGame": "Начать играть",
+  "pagination": {
+    "prev": "Назад",
+    "next": "Вперёд"
+  },
+  "get": "Получить",
+  "continue": "Продолжить",
+  "loading": "Загрузка...",
+  "downloadClient": "Скачать клиент"
+}

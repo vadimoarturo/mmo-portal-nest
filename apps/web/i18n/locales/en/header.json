@@ -1,0 +1,30 @@
+{
+  "logout": "Logout",
+  "menu": "Menu",
+  "link": {
+    "shop": "Shop",
+    "auction": "Auction",
+    "wiki": "Wiki",
+    "discord": "Discord",
+    "telegram": "Telegram",
+    "donate": "Donate",
+    "download": "Download"
+  },
+  "footer": {
+    "community": "Community",
+    "game": "Game",
+    "information": "Information",
+    "description": "mmo-portal is an independent community platform. Game services are provided by the operator.",
+    "link": {
+      "rank": "Rankings",
+      "wiki": "Wiki",
+      "shop": "Shop",
+      "auction": "Auction",
+      "telegram": "Telegram",
+      "agreement": "Agreement",
+      "download": "Download client",
+      "support": "Support",
+      "contact": "Contact"
+    }
+  }
+}

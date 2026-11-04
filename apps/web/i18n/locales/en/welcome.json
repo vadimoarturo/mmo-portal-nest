@@ -1,0 +1,58 @@
+{
+  "title": "A world worth fighting for.",
+  "description": "Forge your legend. Find your allies. Trade, compete, and claim your place in a world shaped by its players.",
+  "serverInfo": {
+    "serverTime": "Server Time",
+    "exp": "EXP",
+    "drop": "Drop"
+  },
+  "tables": {
+    "raceCode": {
+      "3": "Vanguard",
+      "4": "Mystic",
+      "5": "Ranger"
+    },
+    "topLevel": {
+      "title": "Top Level",
+      "place": "Place",
+      "name": "Name",
+      "level": "Level",
+      "race": "Race",
+      "profession": "Profession",
+      "guild": "Guild"
+    },
+    "topPK": {
+      "title": "Top PK",
+      "place": "Place",
+      "name": "Name",
+      "level": "Level",
+      "race": "Race",
+      "profession": "Profession",
+      "guild": "Guild",
+      "kills": "Kills"
+    },
+    "topGuilds": {
+      "title": "Top Guilds",
+      "place": "Place",
+      "guild": "Guild",
+      "leader": "Leader",
+      "players": "Players",
+      "dungeon": "Dungeon",
+      "points": "Points"
+    }
+  },
+  "rankings": {
+    "eyebrow": "Glory is earned",
+    "title": "The Hall of Legends",
+    "description": "The names that shape our world.",
+    "empty": "The next legend could be you.",
+    "rank": "Rank",
+    "name": "Adventurer",
+    "class": "Class",
+    "clan": "Clan",
+    "level": "Level",
+    "score": "Score",
+    "members": "members",
+    "loading": "Gathering the legends…"
+  }
+}

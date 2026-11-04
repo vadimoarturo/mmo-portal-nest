@@ -1,0 +1,42 @@
+{
+  "balance": {
+    "current": "Balance",
+    "topUp": "Top up"
+  },
+  "buy": {
+    "success": "Purchase successful",
+    "error": "Error purchasing"
+  },
+  "lifeType": {
+    "MINUTE": "minute",
+    "HOUR": "hour",
+    "DAY": "days",
+    "MONTH": "month",
+    "ONETIME": "one-time",
+    "FOREVER": "forever"
+  },
+  "category": {
+    "title": "Categories",
+    "sales": "Sales",
+    "consumables": "Consumables",
+    "sets": "Sets",
+    "wings": "Wings",
+    "raincoats": "Raincoats",
+    "costumes": "Costumes",
+    "helmets": "Helmets",
+    "pets": "Pets",
+    "stones": "Stones",
+    "appeals": "Pet Appeals",
+    "other": "Other"
+  },
+  "item": {
+    "level": "Minimum level",
+    "lifeTime": "Life time",
+    "isMove": "Moveable",
+    "count": "Count",
+    "total": "Total",
+    "totalPayment": "Total payment",
+    "pricePerItem": "Price per item",
+    "noItems": "No items"
+  }
+}

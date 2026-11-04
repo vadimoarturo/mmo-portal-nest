@@ -29,6 +29,6 @@ export class TopGuildsDTO {
     dungeons: number;
     @IsNumber()
     players: number;
-    @IsNumber()
-    leaders: number;
+    @IsString()
+    leaders: string;
 }

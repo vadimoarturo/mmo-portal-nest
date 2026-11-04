@@ -1,0 +1,18 @@
+{
+  "email": {
+    "title": "Email",
+    "placeholder": "Введите email"
+  },
+  "password": {
+    "title": "Пароль",
+    "placeholder": "Введите пароль"
+  },
+  "confirmPassword": {
+    "title": "Подтверждение пароля",
+    "placeholder": "Введите пароль еще раз"
+  },
+  "login": {
+    "title": "Логин",
+    "placeholder": "Введите логин"
+  }
+}

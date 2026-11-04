@@ -1,0 +1,18 @@
+{
+  "email": {
+    "title": "Email",
+    "placeholder": "Enter email"
+  },
+  "password": {
+    "title": "Password",
+    "placeholder": "Enter password"
+  },
+  "confirmPassword": {
+    "title": "Confirm password",
+    "placeholder": "Enter password again"
+  },
+  "login": {
+    "title": "Login",
+    "placeholder": "Enter login"
+  }
+}

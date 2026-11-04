@@ -1,0 +1,12 @@
+{
+  "title": "Download Game",
+  "client": "Client",
+  "drivers": "Drivers",
+  "info": "Choose a convenient way to download the game client",
+  "instructions": {
+    "title": "Important Information",
+    "launcher": "Run the game through Launcher.exe. If you have problems, use ReserveLauncherRU.exe or ReserveLauncherEN.exe",
+    "antivirus": "Add all client directory files to your antivirus exceptions",
+    "support": "For additional problems, install drivers or contact support"
+  }
+}

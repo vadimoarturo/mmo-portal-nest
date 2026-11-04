@@ -1,0 +1,66 @@
+{
+  "title": "Auction",
+  "balance": "Balance",
+  "myLots": "My Lots",
+  "createLot": "Create Lot",
+  "buy": "Buy",
+  "cancel": "Cancel",
+  "create": "Create",
+  "buyLot": "Buy Lot",
+  "noLots": "No available lots",
+  "noMyLots": "You have no active lots",
+  "authRequired": "Authorization required to participate in auction",
+
+  "table": {
+    "character": "Character",
+    "gold": "Gold",
+    "price": "Price",
+    "rate": "Rate",
+    "action": "Action"
+  },
+
+  "form": {
+    "gold": "Amount of gold",
+    "goldPlaceholder": "Enter amount of gold",
+    "goldError": "Numbers only",
+    "goldShort": "gold",
+    "price": "Price in Credits",
+    "pricePlaceholder": "Enter price in Credits",
+    "priceError": "Numbers only",
+    "rate": "Exchange rate",
+    "limits": {
+      "gold": "Gold",
+      "price": "Price",
+      "note": "Make sure you have enough gold in game",
+      "goldMin": "Minimum amount: 1,000,000 gold",
+      "priceMin": "Minimum price: 1 Credits",
+      "goldRange": "Gold amount should be from 1,000,000 to 9,000,000,000",
+      "priceRange": "Price should be from 1 to 9,000,000,000 Credits"
+    }
+  },
+
+  "createDescription": "Create a new lot to sell gold",
+  "myLotsDescription": "Manage your active lots",
+  "buyDescription": "Confirm lot purchase",
+
+  "buyWarning": {
+    "title": "Warning!",
+    "description": "Make sure you entered the character selection and opened the stock room at least once"
+  },
+
+  "createWarning": {
+    "title": "Warning!",
+    "description": "Make sure you entered the character selection and opened the stock room at least once"
+  },
+
+  "fillAllFields": "Fill all fields",
+  "goldRange": "Gold amount should be from 1,000,000 to 9,000,000,000",
+  "creditRange": "Price should be from 1 to 9,000,000,000 Credits",
+  "createSuccess": "Lot created successfully",
+  "createError": "Error creating lot",
+  "buySuccess": "Lot purchased successfully",
+  "buyError": "Error purchasing lot",
+  "cancelSuccess": "Lot cancelled successfully",
+  "cancelError": "Error cancelling lot",
+  "cancelConfirm": "Are you sure you want to cancel this lot?"
+}

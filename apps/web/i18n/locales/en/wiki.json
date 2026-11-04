@@ -1,0 +1,25 @@
+{
+  "title": "Community guide",
+  "topics": [
+    {
+      "title": "Your account",
+      "body": "Create an account, confirm your email, and sign in to access your personal marketplace. Use the password recovery link if you lose access."
+    },
+    {
+      "title": "Marketplace",
+      "body": "Browse categories and review the price, quantity, and duration of each item. Purchases use portal credits and are delivered to your game account."
+    },
+    {
+      "title": "Player trading",
+      "body": "List game gold for portal credits or buy an existing offer. Your character must be offline and the game storage must already be initialized."
+    },
+    {
+      "title": "Payments",
+      "body": "Select a payment method and review its rate and bonus before continuing. Credits appear after the provider confirms the payment."
+    },
+    {
+      "title": "Rankings",
+      "body": "Compare player levels, competitive results, and guild achievements. Rankings refresh periodically and never expose private account information."
+    }
+  ]
+}

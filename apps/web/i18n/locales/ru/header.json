@@ -1,0 +1,30 @@
+{
+  "logout": "Выйти",
+  "menu": "Меню",
+  "link": {
+    "shop": "Магазин",
+    "auction": "Аукцион",
+    "wiki": "Wiki",
+    "discord": "Discord",
+    "telegram": "Telegram",
+    "donate": "Донат",
+    "download": "Скачать"
+  },
+  "footer": {
+    "community": "Сообщество",
+    "game": "Игровые разделы",
+    "information": "Информация",
+    "description": "mmo-portal is an independent community platform. Game services are provided by the operator.",
+    "link": {
+      "rank": "Рейтинги",
+      "wiki": "Вики",
+      "shop": "Магазин",
+      "auction": "Аукцион",
+      "telegram": "Telegram",
+      "agreement": "Соглашение",
+      "download": "Скачать клиент",
+      "support": "Поддержка",
+      "contact": "Контакты"
+    }
+  }
+}

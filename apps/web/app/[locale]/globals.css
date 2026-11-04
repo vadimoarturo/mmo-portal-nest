@@ -1,0 +1,1052 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #1b1b1b;
+  color: #ffffff;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.101);
+  filter: blur(10px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+@layer base {
+  .link {
+    text-transform: uppercase;
+    text-decoration-line: underline;
+    color: #9ca3af;
+    display: inline;
+  }
+  .link:hover {
+    text-decoration-line: none;
+    color: #71ed9d;
+    cursor: pointer;
+  }
+
+  .link:active {
+    text-transform: uppercase;
+    text-decoration-line: underline;
+    color: #9ca3af;
+  }
+
+  .clip_button {
+    clip-path: polygon(
+      0 0,
+      calc(100% - 8px) 0,
+      100% 8px,
+      100% 100%,
+      8px 100%,
+      0 calc(100% - 8px)
+    );
+  }
+
+  .clip_widget {
+    clip-path: polygon(
+      18px 0,
+      calc(100% - 18px) 0,
+      100% 18px,
+      100% calc(100% - 18px),
+      calc(100% - 18px) 100%,
+      18px 100%,
+      0 calc(100% - 18px),
+      0 18px
+    );
+  }
+
+  h1 {
+    font-size: 54px;
+    line-height: 59.4px;
+    font-weight: 600;
+  }
+
+  /* span {
+    font-size: 54px;
+    line-height: 59.4px;
+    font-weight: 600;
+  } */
+
+  h1.font-fairfax {
+    font-size: 67px;
+    line-height: 59.4px;
+    font-weight: 500;
+  }
+
+  /* span.font-fairfax {
+    font-size: 67px;
+    line-height: 59.4px;
+    font-weight: 500;
+  } */
+
+  h2 {
+    font-size: 32px;
+    line-height: 35.2px;
+    font-weight: 600;
+  }
+
+  h2.font-fairfax {
+    font-size: 40px;
+    line-height: 35.2px;
+    font-weight: 500;
+  }
+
+  .h3 {
+    font-size: 28px;
+    line-height: 30.8px;
+    font-weight: 500;
+  }
+
+  h3 {
+    font-size: 28px;
+    line-height: 30.8px;
+    font-weight: 500;
+  }
+
+  h4 {
+    font-size: 24px;
+    line-height: 26.4px;
+    font-weight: 400;
+  }
+
+  .h4 {
+    font-size: 24px;
+    line-height: 26.4px;
+    font-weight: 400;
+  }
+
+  h5 {
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 400;
+  }
+
+  h6 {
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 400;
+  }
+
+  .h_small {
+    font-size: 12px;
+    line-height: 14.4px;
+    font-weight: 400;
+  }
+
+  .p1 {
+    font-size: 16px;
+    line-height: 17.6px;
+    font-weight: 400;
+  }
+
+  .p3 {
+    font-size: 19px;
+    line-height: 21.6px;
+    font-weight: 500;
+  }
+
+  .p1_wide {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+
+  .p2 {
+    font-size: 14px;
+    line-height: 15.4px;
+    font-weight: 500;
+  }
+
+  .tag {
+    font-size: 12px;
+    line-height: 13.2px;
+    font-weight: 500;
+    font-family: "IBM Plex Mono", monospace;
+  }
+
+  .button_big {
+    font-size: 16px;
+    line-height: 17.6px;
+    font-weight: 500;
+    font-family: "IBM Plex Mono", monospace;
+  }
+
+  .button_medium {
+    font-size: 16px;
+    line-height: 17.6px;
+    font-weight: 400;
+    font-family: "IBM Plex Mono", monospace;
+  }
+
+  .button_small {
+    font-size: 14px;
+    line-height: 15.4px;
+    font-weight: 400;
+    font-family: "IBM Plex Mono", monospace;
+  }
+
+  @screen xl {
+    h1 {
+      font-size: 48px;
+      line-height: 52.8px;
+      font-weight: 600;
+    }
+
+    /* span {
+      font-size: 48px;
+      line-height: 52.8px;
+      font-weight: 600;
+    } */
+
+    h1.font-fairfax {
+      font-size: 60px;
+      line-height: 52.8px;
+      font-weight: 500;
+    }
+
+    /* span.font-fairfax {
+      font-size: 60px;
+      line-height: 52.8px;
+      font-weight: 500;
+    } */
+  }
+
+  @screen lg {
+    h1 {
+      font-size: 39px;
+      line-height: 42.9px;
+      font-weight: 600;
+    }
+
+    /* span {
+      font-size: 39px;
+      line-height: 42.9px;
+      font-weight: 600;
+    } */
+
+    h1.font-fairfax {
+      font-size: 48px;
+      line-height: 42.9px;
+      font-weight: 500;
+    }
+
+    /* span.font-fairfax {
+      font-size: 49px;
+      line-height: 42.9px;
+      font-weight: 500;
+    } */
+  }
+
+  @screen mb {
+    h1 {
+      font-size: 26px;
+      line-height: 28.6px;
+      font-weight: 600;
+    }
+
+    /* span {
+      font-size: 26px;
+      line-height: 28.6px;
+      font-weight: 600;
+    } */
+
+    h1.font-fairfax {
+      font-size: 32px;
+      line-height: 28.6px;
+      font-weight: 500;
+    }
+
+    /* span.font-fairfax {
+      font-size: 32px;
+      line-height: 28.6px;
+      font-weight: 500;
+    } */
+
+    h2 {
+      font-size: 32px;
+      line-height: 35.2px;
+      font-weight: 600;
+    }
+
+    h2.font-fairfax {
+      font-size: 27px;
+      line-height: 35.2px;
+      font-weight: 500;
+    }
+
+    .h3 {
+      font-size: 22px;
+      line-height: 24.2px;
+      font-weight: 500;
+    }
+
+    h3 {
+      font-size: 22px;
+      line-height: 24.2px;
+      font-weight: 500;
+    }
+
+    h4 {
+      font-size: 20px;
+      line-height: 26.4px;
+      font-weight: 400;
+    }
+
+    .h4 {
+      font-size: 20px;
+      line-height: 26.4px;
+      font-weight: 400;
+    }
+
+    h5 {
+      font-size: 16px;
+      line-height: 17.6px;
+      font-weight: 400;
+    }
+
+    h6 {
+      font-size: 16px;
+      line-height: 17.6px;
+      font-weight: 400;
+    }
+
+    .h_small {
+      font-size: 11px;
+      line-height: 13.2px;
+      font-weight: 400;
+    }
+
+    .p1 {
+      font-size: 14px;
+      line-height: 15.4px;
+      font-weight: 400;
+    }
+
+    .p1_wide {
+      font-size: 14px;
+      line-height: 21px;
+      font-weight: 400;
+    }
+
+    .p2 {
+      font-size: 12px;
+      line-height: 13.2px;
+      font-weight: 500;
+    }
+
+    .tag {
+      font-size: 10px;
+      line-height: 11px;
+      font-weight: 500;
+      font-family: "IBM Plex Mono", monospace;
+    }
+
+    .button_big {
+      font-size: 15px;
+      line-height: 16.5px;
+      font-weight: 500;
+      font-family: "IBM Plex Mono", monospace;
+    }
+
+    .button_medium {
+      font-size: 15px;
+      line-height: 16.5px;
+      font-weight: 400;
+      font-family: "IBM Plex Mono", monospace;
+    }
+
+    .button_small {
+      font-size: 13px;
+      line-height: 14.3px;
+      font-weight: 400;
+      font-family: "IBM Plex Mono", monospace;
+    }
+  }
+}
+/* Original fantasy art direction for the community portal. */
+:root {
+  --realm-gold: #d8b879;
+  --realm-muted: #9e9a95;
+  --realm-border: #b8975a30;
+}
+.realm-kicker,
+.realm-eyebrow {
+  color: var(--realm-gold);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+.realm-hero {
+  position: relative;
+  min-height: 720px;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.realm-hero-art,
+.realm-hero-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+.realm-hero-art {
+  background: url("/images/fantasy-hero.webp") center 38% / cover no-repeat;
+}
+.realm-hero-shade {
+  z-index: -1;
+  background:
+    linear-gradient(90deg, #05080fe8 0%, #080c1499 32%, #080c1400 70%),
+    linear-gradient(
+      0deg,
+      #080c15 0%,
+      #080c1400 28%,
+      #080c1410 82%,
+      #080c1450 100%
+    );
+}
+.realm-hero-content {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  padding: 40px 64px 110px;
+}
+.realm-eyebrow {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+.realm-eyebrow span {
+  height: 1px;
+  width: 30px;
+  background: #d8b87988;
+}
+.realm-hero h1 {
+  max-width: 650px;
+  font-family: var(--font-display), Georgia, serif;
+  color: #f7eddb;
+  font-weight: 500;
+  font-size: clamp(42px, 4.6vw, 67px);
+  line-height: 1.16;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+  text-shadow: 0 4px 35px #000;
+}
+.realm-hero-content > p {
+  max-width: 440px;
+  color: #cec9c0;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-top: 26px;
+  text-shadow: 0 2px 12px #000;
+}
+.realm-hero-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+.realm-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  min-height: 52px;
+  padding: 0 24px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  border: 1px solid #d8b87966;
+  transition:
+    filter 0.2s,
+    background 0.2s;
+  clip-path: polygon(
+    7px 0,
+    100% 0,
+    100% calc(100% - 7px),
+    calc(100% - 7px) 100%,
+    0 100%,
+    0 7px
+  );
+}
+.realm-button:focus-visible,
+.realm-tabs button:focus-visible {
+  outline: 2px solid #f2d59f;
+  outline-offset: 4px;
+}
+.realm-button-gold {
+  color: #21190d;
+  background: linear-gradient(130deg, #f0d59f, #bc9452);
+  box-shadow: inset 0 0 0 3px #fce7b42b;
+}
+.realm-button-gold:hover {
+  filter: brightness(1.15);
+}
+.realm-button-outline {
+  background: #10111577;
+  color: #e4d2b5;
+}
+.realm-button-outline:hover {
+  background: #d8b87920;
+}
+.realm-hero-note {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: #b3aaa0;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  margin-top: 22px;
+}
+.realm-small-diamond {
+  width: 4px;
+  height: 4px;
+  transform: rotate(45deg);
+  background: #d8b879;
+}
+.realm-scroll {
+  position: absolute;
+  bottom: 44px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  color: #d2b781aa;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  white-space: nowrap;
+}
+.realm-scroll span {
+  width: 25px;
+  height: 1px;
+  background: #d8b87966;
+}
+.realm-scroll b {
+  font-size: 20px;
+  line-height: 10px;
+  font-weight: 400;
+}
+.realm-paths {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 1200px;
+  margin: -8px auto 0;
+  padding: 0 32px;
+  position: relative;
+  z-index: 1;
+}
+.realm-path {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 28px 24px;
+  border: 1px solid var(--realm-border);
+  background: linear-gradient(130deg, #1d2028c4, #0e1118);
+  transition: border-color 0.2s;
+}
+.realm-path + .realm-path {
+  border-left: 0;
+}
+.realm-path:hover {
+  border-color: #d8b87988;
+}
+.realm-path-number {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 32px;
+  color: #d8b87966;
+  min-width: 32px;
+}
+.realm-path small {
+  color: #c4a96f;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.realm-path h2 {
+  color: #eee1ca;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 14px;
+  margin: 8px 0 7px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.realm-path p {
+  color: #95918b;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.realm-path > b {
+  color: #b3986a;
+  margin-left: auto;
+  font-size: 18px;
+  font-weight: 400;
+}
+.realm-rankings {
+  max-width: 1200px;
+  padding: 86px 32px 0;
+  margin: 0 auto;
+  scroll-margin-top: 32px;
+  min-width: 0;
+}
+.realm-section-heading {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+.realm-section-heading h2 {
+  color: #f0e4cf;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 32px;
+  font-weight: 400;
+  margin-top: 12px;
+  line-height: 1.2;
+}
+.realm-section-description {
+  margin-top: 12px;
+  color: #898984;
+  font-size: 12px;
+}
+.realm-tabs {
+  display: flex;
+  flex-shrink: 0;
+  border-bottom: 1px solid #d8b87930;
+  gap: 22px;
+}
+.realm-tabs button {
+  padding: 12px 0;
+  border-bottom: 2px solid transparent;
+  color: #8f8e8c;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.realm-tabs button[aria-selected="true"] {
+  color: #e3c58f;
+  border-bottom-color: #d8b879;
+}
+.realm-table-panel {
+  border: 1px solid var(--realm-border);
+  background: linear-gradient(110deg, #161b24aa, #10141c);
+  min-width: 0;
+  overflow: hidden;
+}
+.realm-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  text-align: left;
+}
+.realm-table thead {
+  border-bottom: 1px solid #d8b87928;
+  background: #0d111899;
+}
+.realm-table th {
+  padding: 18px 16px;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #a49c8c;
+}
+.realm-table td {
+  padding: 18px 16px;
+  font-size: 12px;
+  border-bottom: 1px solid #ffffff06;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.realm-table tbody tr:hover {
+  background: #d8b87905;
+}
+.realm-table .realm-rank-column {
+  width: 84px;
+  padding-left: 28px;
+}
+.realm-table td:first-child {
+  padding-left: 28px;
+}
+.realm-table .realm-score-column {
+  width: 110px;
+  text-align: right;
+  padding-right: 30px;
+}
+.realm-rank-medal {
+  font-family: var(--font-display), Georgia, serif;
+  color: #9d978b;
+  font-size: 14px;
+}
+.realm-medal-1 {
+  color: #f0d594;
+}
+.realm-medal-2 {
+  color: #bec6d3;
+}
+.realm-medal-3 {
+  color: #be987b;
+}
+.realm-player-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.realm-player-sigil {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d4b982;
+  font-size: 13px;
+  background: #b8985d12;
+  border: 1px solid #c3a16c35;
+  transform: rotate(0);
+}
+.realm-sigil-1 {
+  color: #a7b8d3;
+  background: #a7b8d310;
+  border-color: #a7b8d335;
+}
+.realm-sigil-2 {
+  color: #afc1a5;
+  background: #afc1a510;
+  border-color: #afc1a535;
+}
+.realm-player-name {
+  color: #eee4d2;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.realm-muted {
+  color: #93959a;
+}
+.realm-score {
+  font-family: var(--font-display), Georgia, serif;
+  color: #e6cb95;
+  font-size: 15px;
+}
+.realm-mobile-clan {
+  display: none;
+}
+.realm-empty {
+  height: 140px;
+  color: #9e998f;
+  text-align: center;
+}
+.realm-table-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 28px;
+  color: #726f69;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  border-top: 1px solid #d8b87918;
+}
+.realm-table-foot span:first-child {
+  color: #ab946c;
+}
+.realm-join {
+  text-align: center;
+  padding: 76px 24px 80px;
+  background: radial-gradient(ellipse at center, #b3905810, transparent 65%);
+}
+.realm-ornament {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: center;
+  color: #d8b87966;
+  font-size: 8px;
+  margin-bottom: 26px;
+}
+.realm-ornament:before,
+.realm-ornament:after {
+  content: "";
+  height: 1px;
+  width: 80px;
+  background: linear-gradient(90deg, transparent, #d8b87955);
+}
+.realm-ornament:after {
+  transform: rotate(180deg);
+}
+.realm-join h2 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 26px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #eee0c8;
+  margin-top: 14px;
+}
+.realm-join > p:not(.realm-kicker) {
+  color: #928b7e;
+  font-size: 13px;
+  margin-top: 8px;
+}
+.realm-join .realm-button {
+  margin-top: 26px;
+}
+@media (max-width: 767px) {
+  .realm-hero {
+    min-height: 710px;
+    align-items: flex-end;
+  }
+  .realm-hero-art {
+    background-position: 69% top;
+    background-size: auto 480px;
+  }
+  .realm-hero-shade {
+    background: linear-gradient(
+      0deg,
+      #080c15 0%,
+      #080c15 10%,
+      #080c15ed 40%,
+      #080c1400 78%,
+      #080c1440
+    );
+  }
+  .realm-hero-content {
+    padding: 270px 24px 65px;
+  }
+  .realm-eyebrow {
+    font-size: 8px;
+    gap: 10px;
+    margin-bottom: 20px;
+    letter-spacing: 0.2em;
+  }
+  .realm-eyebrow span {
+    width: 20px;
+  }
+  .realm-hero h1 {
+    font-size: 38px;
+    max-width: 440px;
+  }
+  .realm-hero-content > p {
+    font-size: 13px;
+    margin-top: 18px;
+    line-height: 1.8;
+  }
+  .realm-hero-actions {
+    gap: 10px;
+    margin-top: 24px;
+  }
+  .realm-button {
+    min-height: 48px;
+    padding: 0 18px;
+    font-size: 9px;
+    gap: 14px;
+  }
+  .realm-hero-note {
+    font-size: 8px;
+    line-height: 1.5;
+    margin-top: 18px;
+  }
+  .realm-scroll {
+    display: none;
+  }
+  .realm-paths {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+    margin-top: 0;
+  }
+  .realm-path {
+    padding: 20px;
+    gap: 16px;
+  }
+  .realm-path + .realm-path {
+    border-left: 1px solid var(--realm-border);
+    border-top: 0;
+  }
+  .realm-path-number {
+    font-size: 26px;
+  }
+  .realm-path h2 {
+    font-size: 13px;
+    margin-top: 6px;
+  }
+  .realm-rankings {
+    padding: 55px 20px 0;
+  }
+  .realm-section-heading {
+    display: block;
+    margin-bottom: 18px;
+  }
+  .realm-section-heading h2 {
+    font-size: 27px;
+  }
+  .realm-section-description {
+    font-size: 11px;
+  }
+  .realm-tabs {
+    margin-top: 20px;
+    gap: 0;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .realm-tabs button {
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    flex: 1;
+    padding: 12px 4px;
+  }
+  .realm-desktop-column {
+    display: none;
+  }
+  .realm-table .realm-rank-column {
+    width: 54px;
+    padding-left: 15px;
+  }
+  .realm-table td:first-child {
+    padding-left: 15px;
+  }
+  .realm-table .realm-score-column {
+    width: 65px;
+    padding-right: 16px;
+  }
+  .realm-table th {
+    padding: 14px 8px;
+    font-size: 7px;
+    letter-spacing: 0.15em;
+  }
+  .realm-table td {
+    padding: 14px 8px;
+    font-size: 11px;
+  }
+  .realm-player-sigil {
+    width: 26px;
+    height: 29px;
+  }
+  .realm-player-cell {
+    gap: 10px;
+  }
+  .realm-player-name {
+    font-size: 12px;
+  }
+  .realm-mobile-clan {
+    display: block;
+    color: #85837e;
+    font-size: 9px;
+    margin-top: 4px;
+    font-weight: 400;
+  }
+  .realm-table-foot {
+    padding: 14px;
+    font-size: 8px;
+  }
+  .realm-table-foot span:first-child {
+    display: none;
+  }
+  .realm-join {
+    padding: 58px 24px;
+  }
+  .realm-join h2 {
+    font-size: 21px;
+  }
+}
+.realm-header {
+  position: relative;
+  z-index: 50;
+  background: #080c15;
+  border-bottom: 1px solid #d8b87925;
+}
+.realm-status {
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: #05080d;
+  border-bottom: 1px solid #ffffff04;
+  color: #8b8377;
+  font-size: 8px;
+  letter-spacing: 0.13em;
+}
+.realm-status-diamond {
+  color: #b99d67;
+  font-size: 5px;
+}
+.realm-brand {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+  padding: 4px 0;
+}
+.realm-brand-title {
+  display: block;
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 600;
+  color: #e6cd9b;
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+  text-shadow: 0 1px 15px #e3b87115;
+  white-space: nowrap;
+}
+.realm-brand-sub {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #8d7e65;
+  font-size: 6px !important;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+.realm-brand-sub i {
+  display: block;
+  width: 12px;
+  height: 1px;
+  background: #d8b87944;
+}
+.realm-header nav a,
+.realm-header nav span {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 10px;
+  letter-spacing: 0.035em;
+  color: #d6cabb;
+}
+.realm-header nav a:hover,
+.realm-header nav span:hover {
+  color: #e6c480;
+}
+.realm-footer {
+  border-top: 1px solid #d8b87925;
+  background: #06090f;
+}
+.realm-footer > div > div > p:first-child {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 500;
+  color: #d8b879;
+}
+@media (max-width: 767px) {
+  .realm-status {
+    font-size: 7px;
+    gap: 10px;
+  }
+  .realm-brand-sub {
+    display: none;
+  }
+  .realm-header nav span {
+    font-size: 10px;
+  }
+  .realm-header > div:nth-of-type(2) {
+    padding: 18px 14px;
+  }
+}

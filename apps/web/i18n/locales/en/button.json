@@ -1,0 +1,14 @@
+{
+  "forgotPassword": "Forgot password?",
+  "back": "Back",
+  "signIn": "Sign in",
+  "signUp": "Sign up",
+  "startGame": "Start game",
+  "pagination": {
+    "prev": "Prev",
+    "next": "Next"
+  },
+  "get": "Get",
+  "continue": "Continue",
+  "downloadClient": "Download Client"
+}

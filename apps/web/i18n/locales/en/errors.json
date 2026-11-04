@@ -1,0 +1,46 @@
+{
+  "password": "Password must contain at least {{min}} characters and can only include Latin letters and numbers",
+  "passwordConfirm": "Passwords do not match",
+  "login": "Login must be from {{min}} to {{max}} characters",
+  "email": "Enter a valid email",
+  "donate": "Donation is temporarily unavailable",
+  "error": {
+    "auth": {
+      "signIn": "Error signing in",
+      "signUp": "Error signing up"
+    }
+  },
+  "code": {
+    "401": "Invalid login or password",
+    "403": "Insufficient rights to perform the operation",
+    "ERROR_PASSWORD_OR_LOGIN": "Invalid login or password",
+    "ACCOUNT_EXIST": "Account already exists",
+    "SIGN_IN_BLOCK": "Account blocked",
+    "VERIFY_ALREADY": "Code already used",
+    "VERIFY_EXPIRED_CODE": "Code expired",
+    "VERIFY_WRONG_CODE": "Invalid code",
+    "SHOP_NOT_FOUND_ITEM": "Item not found",
+    "SHOP_BUY_LIMIT_COUNT": "You cannot buy more items",
+    "SHOP_BUY_UNSUCCESSFUL": "Purchase failed",
+    "USER_NOT_FOUND": "User not found",
+    "USER_INSUFFICIENT_FUNDS": "Insufficient funds",
+    "ERROR_DTO_VALIDATION": "Data validation error",
+    "MIN_AMOUNT": "Amount must be at least",
+    "PAY_CREATE_ERROR": "Error creating payment",
+    "AUCTION_LOT_NOT_FOUND": "Lot not found",
+    "AUCTION_LOT_OWN": "You cannot buy your own lot",
+    "ACTION_ERROR": "Game server action error",
+    "SELECT_CHARACTER_EXIT": "Enter the character selection",
+    "CHARACTER_NOT_FOUND": "Please create character",
+    "USER_INSUFFICIENT_FUNDS_IN_GAME": "Insufficient gold in game",
+    "STOCK_ROOM_NOT_OPEN": "Open the stock room at least once",
+    "EMAIL_ALREADY_VERIFIED": "Email already verified"
+  },
+  "notify": {
+    "auth": "To get an item, you must be logged in",
+    "pay": {
+      "success": "Your balance has been successfully replenished",
+      "error": "Payment error, contact support"
+    }
+  }
+}
