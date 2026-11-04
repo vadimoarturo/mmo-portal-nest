@@ -43,6 +43,8 @@ jobs:
       - if: matrix.app == 'api'
         run: pnpm test -- --runInBand
       - run: pnpm build
+      - if: matrix.app == 'web'
+        run: pnpm smoke
       - run: pnpm audit --prod --audit-level=moderate
 
   publication:

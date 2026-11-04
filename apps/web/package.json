@@ -9,7 +9,8 @@
     "lint": "eslint . --max-warnings=0",
     "lint:fix": "eslint . --fix",
     "typecheck": "next typegen && tsc --noEmit",
-    "postbuild": "node scripts/prepare-standalone.mjs"
+    "postbuild": "node scripts/prepare-standalone.mjs",
+    "smoke": "node scripts/smoke-standalone.mjs"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^15.5.29",

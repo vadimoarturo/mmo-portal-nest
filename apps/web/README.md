@@ -53,7 +53,7 @@ The locale layout initializes translations on the server and composes the client
 | `/[locale]/pay/success` | Provider return feedback |
 | `/[locale]/pay/error` | Provider failure/return feedback |
 
-`middleware.ts` resolves locale routing. The backend's email links omit an explicit locale and are routed through that middleware. A payment return page provides feedback; the signed backend callback is responsible for credit settlement.
+`middleware.ts` resolves locale routing. Both locales retain an explicit URL prefix (`prefixDefault: true`), including the default Russian locale, so direct cookie-free requests render without a rewrite/redirect cycle. The backend's email links omit an explicit locale and are routed through that middleware. A payment return page provides feedback; the signed backend callback is responsible for credit settlement.
 
 ## Client state and HTTP
 
@@ -132,3 +132,5 @@ pnpm build
 The repository's API suite verifies the backend business contract. For a visual check, run the standalone web server and use the root preview command. The capture script blocks external requests, injects synthetic leaderboard entries, marks the screenshot as sample data, and saves desktop/mobile PNGs.
 
 <p align="center"><img src="../../docs/assets/preview-mobile.png" alt="Mobile preview of mmo-portal with synthetic data" width="300" /></p>
+
+`pnpm smoke` starts the compiled standalone server on an ephemeral local port and checks cookie-free English/Russian routes, feature pages, artwork, and the root redirect. CI runs it after the production build.

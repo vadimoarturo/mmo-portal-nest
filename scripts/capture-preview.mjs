@@ -19,6 +19,11 @@ try {
     if (url.origin !== origin) return route.abort();
     return route.continue();
   });
+  // Check direct locale routes before any browser visit or locale cookie exists.
+  for (const locale of ['ru', 'en']) {
+    const response = await page.request.get(`${origin}/${locale}`, { maxRedirects: 0 });
+    assert.equal(response.status(), 200, `Direct /${locale} request must render without a redirect`);
+  }
   await page.goto(`${origin}/en`, { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);
   await page.locator('#rank').scrollIntoViewIfNeeded();
