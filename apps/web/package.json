@@ -12,7 +12,7 @@
     "postbuild": "node scripts/prepare-standalone.mjs"
   },
   "dependencies": {
-    "@next/bundle-analyzer": "^15.5.29",
+    "@next/bundle-analyzer": "^16.4.3",
     "@tanstack/react-query": "^5.105.3",
     "axios": "^1.21.0",
     "i18next": "^25.10.10",
